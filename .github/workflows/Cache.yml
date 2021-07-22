@@ -11,14 +11,18 @@ jobs:
             -   name: Checkout
                 uses: actions/checkout@v2
 
+            -   name: Current dir
+                id: current
+                run: echo "::set-output name=dir::$(pwd)"
+
             -   name: Cache Test
                 uses: actions/cache@v2
                 with:
-                    path: '/foo/bar'
+                    path: ${{ steps.current.outputs.dir }}
                     key: ${{ runner.os }}-test-${{ hashFiles('./cache.sh') }}
                     restore-keys: |
                         ${{ runner.os }}-test-
 
             -   name: Write something
                 run: |
-                    ./cache.sh
+                    ./cache.sh ${{ steps.current.outputs.dir }}

@@ -1,11 +1,12 @@
 #!/bin/sh
 
 pwd
-mkdir -p /foo/bar
-ls -la /foo/bar
-if [ -f '/foo/bar/baz' ] then
+echo $1/foo/bar
+mkdir -p $1/foo/bar
+ls -la $1/foo/bar
+if [ -f "$1/foo/bar/baz" ] then
   echo 'cache hit';
 else
-  touch /foo/bar/baz
-  echo 'bla' > /foo/bar/blupp
+  touch $1/foo/bar/baz
+  echo 'bla' > $1/foo/bar/blupp
 fi
