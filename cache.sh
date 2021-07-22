@@ -4,6 +4,7 @@ mkdir -p $1/foo/bar
 echo 'before write'
 ls -la $1
 ls -la $1/foo/bar
+echo
 
 if [ -f "$1/foo/bar/baz" ]
 then
@@ -18,6 +19,7 @@ else
   echo 'bla' > $1/foo/bar/blupp
 fi
 
+echo
 echo 'after write'
 echo $2 > $1/foo/bar/current
 ls -la $1
