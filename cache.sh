@@ -4,7 +4,8 @@ pwd
 echo $1/foo/bar
 mkdir -p $1/foo/bar
 ls -la $1/foo/bar
-if [ -f "$1/foo/bar/baz" ] then
+if [ -f "$1/foo/bar/baz" ]
+then
   echo 'cache hit';
 else
   touch $1/foo/bar/baz
