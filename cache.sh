@@ -9,9 +9,11 @@ echo $2 > $1/current
 
 if [ -f "$1/foo/bar/baz" ]
 then
-  echo 'cache hit';
+  echo
+  echo 'Cache HIT';
+  echo
 else
-  echo 'cache miss';
+  echo 'Cache MISS';
   touch $1/foo/bar/baz
   echo 'bla' > $1/foo/bar/blupp
 fi
