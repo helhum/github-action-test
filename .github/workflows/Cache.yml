@@ -26,8 +26,9 @@ jobs:
                 uses: actions/cache@v2
                 with:
                     path: ${{ steps.current.outputs.dir }}/foo/bar
-                    key: ${{ runner.os }}-test2-${{ steps.current.outputs.timestamp }}
+                    key: ${{ runner.os }}-test2-${{ matrix.level-one }}-${{ steps.current.outputs.timestamp }}
                     restore-keys: |
+                        ${{ runner.os }}-test2-${{ matrix.level-one }}-
                         ${{ runner.os }}-test2-
 
             -   name: Write something
