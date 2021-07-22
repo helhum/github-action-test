@@ -7,6 +7,12 @@ jobs:
         name: 'Cache something'
         runs-on: ubuntu-latest
 
+        strategy:
+            fail-fast: true
+            matrix:
+                one: [ 'one' ]
+                two: [ 'two', 'three' ]
+
         steps:
             -   name: Checkout
                 uses: actions/checkout@v2
@@ -27,5 +33,5 @@ jobs:
 
             -   name: Write something
                 run: |
-                    echo ${{ steps.current.outputs.timestamp }}
+                    echo ${{ steps.current.outputs.timestamp }} ${{ matrix.one }} ${{ matrix.two }}
                     ./cache.sh ${{ steps.current.outputs.dir }} ${{ steps.current.outputs.timestamp }}
