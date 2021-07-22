@@ -24,3 +24,4 @@ echo 'after write'
 echo $2 > $1/foo/bar/current
 ls -la $1
 ls -la $1/foo/bar
+
