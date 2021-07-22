@@ -27,4 +27,5 @@ jobs:
 
             -   name: Write something
                 run: |
+                    echo ${{ steps.current.outputs.timestamp }}
                     ./cache.sh ${{ steps.current.outputs.dir }} ${{ steps.current.outputs.timestamp }}
