@@ -21,7 +21,7 @@ jobs:
                 uses: actions/cache@v2
                 with:
                     path: ${{ steps.current.outputs.dir }}/foo/bar
-                    key: ${{ runner.os }}-test-${{ hashFiles('./cache.sh') }}
+                    key: ${{ runner.os }}-test-${{ hashFiles('./current') }}
                     restore-keys: |
                         ${{ runner.os }}-test-
 
